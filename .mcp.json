@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sbgrid3": {
+      "type": "http",
+      "url": "https://softbowl.co.kr/mcp/sbgrid3.do"
+    }
+  }
+}
