@@ -187,3 +187,10 @@ const init = () => {
 ```
 
 - 팝업 저장 후 `callback`에서 `handleSearch()`로 재조회한다.
+
+## 6. 서버(Java) 컨벤션
+
+- eGovFrame 구조: Controller → Service(인터페이스 + `EgovAbstractServiceImpl` 구현) → Mapper 인터페이스 → MyBatis XML.
+- **Controller 파라미터는 `Map<String, Object>`** 로 받는다. (VO 미사용)
+- 그리드 수정 목록 저장 예: 화면에서 `HttpUtil.post('/ls/xxxUpdate.do', { updateList: updated }, ...)` →
+  Controller에서 `param.get("updateList")`를 `List<Map<String, Object>>`로 꺼내 Service에서 반복 update (`@Transactional`).
