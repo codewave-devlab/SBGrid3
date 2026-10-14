@@ -193,4 +193,5 @@ const init = () => {
 - eGovFrame 구조: Controller → Service(인터페이스 + `EgovAbstractServiceImpl` 구현) → Mapper 인터페이스 → MyBatis XML.
 - **Controller 파라미터는 `Map<String, Object>`** 로 받는다. (VO 미사용)
 - 그리드 수정 목록 저장 예: 화면에서 `HttpUtil.post('/ls/xxxUpdate.do', { updateList: updated }, ...)` →
-  Controller에서 `param.get("updateList")`를 `List<Map<String, Object>>`로 꺼내 Service에서 반복 update (`@Transactional`).
+  Controller는 `Map<String, Object> param`을 **그대로 Service에 넘기고**,
+  Service에서 `param.get("updateList")`(Object)를 꺼내 `List<Map<String, Object>>`로 변환한 뒤 반복 update (`@Transactional`).
