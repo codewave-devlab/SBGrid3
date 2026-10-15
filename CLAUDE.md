@@ -89,7 +89,7 @@
 ### 3-3. MdiManager
 | API | 설명 |
 |------|------|
-| `MdiManager.bind(tabId, $r.root, selector, type, handler, useDebounce)` | 이벤트 연결. selector는 `'.a'`, `'.a, .b'`, `['.a','.b']`. `true`면 300ms debounce. 탭 종료 시 자동 해제 |
+| `MdiManager.bind(tabId, $r.root, selector, type, handler, useDebounce)` | 이벤트 연결. selector는 `'.a'`, `'.a, .b'`, `['.a','.b']`. `true`면 300ms debounce. 탭 종료 시 자동 해제. **debounce(`true`) 사용 시 핸들러가 이벤트 종료 후 실행되어 `e.currentTarget`이 `null`** → `e.target.closest('.selector')`로 요소를 찾는다 |
 | `MdiManager.register(tabId, { onDestroy, onUpdate, onActivate })` | 생명주기 훅. `onUpdate(params)`: 이미 열린 탭을 `add`로 다시 열 때 새 파라미터 수신. `onActivate()`: 탭 선택 시 |
 | `MdiManager.add(title, url, params, prgmId, menuId)` | 새 탭 열기 (예: `MdiManager.add('사건소송정보 등록', '/ls/xxxRegPop.do', '', 'pXxxRegPop', 'Y')`) |
 | `MdiManager.getParams(tabId)` | 탭에 전달된 params |
