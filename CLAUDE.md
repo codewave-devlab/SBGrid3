@@ -271,3 +271,8 @@ const init = () => {
 - 그리드 수정 목록 저장 예: 화면에서 `HttpUtil.post('/ls/xxxUpdate.do', { updateList: updated }, ...)` →
   Controller는 `Map<String, Object> param`을 **그대로 Service에 넘기고**,
   Service에서 `param.get("updateList")`(Object)를 꺼내 `List<Map<String, Object>>`로 변환한 뒤 반복 update (`@Transactional`).
+
+## 7. 답변 방식 (사용자 요청)
+
+- 요청받은 방법대로 구현하되, **더 나은 다른 방법이 있으면 함께 추천**한다. (예: 글자 수로 자르기 요청 → CSS 너비 기준 말줄임도 함께 제안)
+- 추천은 짧게: 무엇이 다른지, 언제 그쪽이 나은지 1~2줄로. 사용자가 고르게 한다.
